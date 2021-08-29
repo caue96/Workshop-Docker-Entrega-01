@@ -1,10 +1,12 @@
-FROM graphql:15.5.1
+FROM node:14.17.5
 
 WORKDIR /app/api-gateway
 
-COPY package.json /app/api-gateway/package.json
+COPY package.json yarn.lock ./
 
 RUN yarn
+
+COPY . .
 
 EXPOSE 7000
 
